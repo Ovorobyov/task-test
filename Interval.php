@@ -12,7 +12,8 @@ class Interval {
 	  	$start = $intervals[$i][0];
 	  	$end = $intervals[$i][1];
 
-	  	for ($j = 1; $j < count($intervals); $j++){
+			$c = (count($intervals) > 1) ? 1:0;
+	  	for ($j = $c; $j <= count($intervals); $j++){
 				if ($start <= $intervals[$j][1] && $end >= $intervals[$j][0]){
 
 					$interval = array_merge([$start, $end], $intervals[$j]);
@@ -37,4 +38,4 @@ class Interval {
 
 $interval = new Interval;
 
-print_r($interval->get([[1,4],  [7, 10],  [3, 5]]));
+print_r($interval->get([[1, 5]]));
